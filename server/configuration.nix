@@ -7,6 +7,7 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./users/root.nix
+    ./factorio.nix
   ];
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -26,7 +27,14 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ vim wget tmux git python3 ];
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    tmux
+    git
+    python3
+    google-cloud-sdk-gce
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -40,12 +48,13 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.openssh.openFirewall = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

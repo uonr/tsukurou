@@ -14,4 +14,4 @@ fi
 
 mkdir -p images
 OUTPUT_FILES="$(echo "$OUTPUT_FILES" | tr -d '[:space:]')"
-cp "$OUTPUT_FILES" images/gce.tar.gz
+cp -f "$OUTPUT_FILES" images/gce.tar.gz

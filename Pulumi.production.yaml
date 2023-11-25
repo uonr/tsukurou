@@ -1,3 +1,4 @@
 encryptionsalt: v1:oyAxn3EGa7Q=:v1:YkZN5unXrdemBq9m:tS4HwE+F/at5uAQncnYW0Kr3Ch6QOA==
 config:
   gcp:project: tsukurou
+  tsukurou:up: "true"
