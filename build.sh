@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-GCE_IMAGE_OUTPUT_DIR="$(nix build '.#gce' --system "x86_64-linux" --no-link --json | jq --raw-output '.[0].outputs.out')"
+GCE_IMAGE_OUTPUT_DIR="$(nix build '.#gce' --system "x86_64-linux" --no-link --print-out-paths)"
 
 # list all files in the output directory
 OUTPUT_FILES="$(find "$GCE_IMAGE_OUTPUT_DIR" -type f)"

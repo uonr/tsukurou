@@ -5,7 +5,6 @@ mkShell {
     (pulumi.withPackages (ps: [ ps.pulumi-language-nodejs ]))
     nodejs
     google-cloud-sdk
-    jq
   ];
 
   shellHook = "";
